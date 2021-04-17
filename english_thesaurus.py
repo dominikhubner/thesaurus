@@ -4,10 +4,12 @@ from difflib import get_close_matches
 data = json.load(open("data.json"))
 
 def check_word(word):   
-    if word.lower() in data.keys(): 
+    if word in data.keys():
+        return(word)
+    elif word.lower() in data.keys(): 
         return(word.lower())
     else:
-        sim_word = get_close_matches(word.lower(), data.keys())
+        sim_word = get_close_matches(word, data.keys())
         if len(sim_word) > 0:
             while True:
                 user_new_word_y_n = input(f"Did you mean {sim_word[0]}?\n[yes] | [no] ")
