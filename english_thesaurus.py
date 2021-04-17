@@ -9,10 +9,13 @@ def check_word(word):
         return(word_small)
     elif word_small.title() in data.keys(): 
         return(word_small.title())
+    elif word_small.upper() in data.keys():
+        return(word_small.upper())
     else:
+        sim_word_upper = get_close_matches(word_small.upper(), data.keys())[0]
         sim_word_small = get_close_matches(word_small, data.keys())[0]
         sim_word_capital = get_close_matches(word_small.title(), data.keys())[0]
-        sim_word = get_close_matches(word, [sim_word_capital, sim_word_small])
+        sim_word = get_close_matches(word, [sim_word_capital, sim_word_small, sim_word_upper])
         if len(sim_word) > 0:
             while True:
                 user_new_word_y_n = input(f"Did you mean {sim_word[0]}?\n[yes] | [no] ")
