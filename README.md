@@ -1,5 +1,5 @@
 # thesaurus
-command line based english dictionary, made with Python 3, getting data from a sql database
+command line based english dictionary, made with Python 3, getting data from a sql database 
 
 executables made with [pyinstaller](https://www.pyinstaller.org). Python and all non-standard libraries are included in the executable
 
